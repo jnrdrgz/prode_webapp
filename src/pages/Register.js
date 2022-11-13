@@ -7,7 +7,7 @@ import { Form, Field } from 'react-final-form'
 import axios from 'axios'
 import { useMutation, } from 'react-query'
 import { useNavigate } from "react-router-dom";
-import {required} from '../libraries/utils';
+import {required, capitalizePhrase} from '../libraries/utils';
 import Swal from 'sweetalert2';
 import config from '../config';
 
@@ -15,7 +15,9 @@ let doRegister = (values) => {
 	let data = {
 	    username: values.username,
     	password: values.password,
-    	full_name: values.full_name
+    	full_name: values.full_name,
+    	first_name: values.first_name,
+    	last_name: values.last_name,
 	}
 
 	return axios({
@@ -50,7 +52,10 @@ export const Register = (props) => {
 	    } else {
 	    	console.log("success", data.data)
 	    	//localStorage.setItem("gdt_token", data.data.access_token)
-	    	navigate("/login")
+	        navigate("/success", { state: {
+	          successMessage: "El usuario se creó correctamente.",
+	          whereToGoBack: config.ROUTES.LOGIN,
+	        }})
 	    }
 	  },
 	})
@@ -65,6 +70,12 @@ export const Register = (props) => {
 			})
 		} else {
 			delete values.password2
+
+			values.first_name = capitalizePhrase(values.first_name)
+			values.last_name = capitalizePhrase(values.last_name)
+
+			values.full_name = `${values.first_name[0]}. ${values.last_name}`
+
 			mutation.mutate(values)
 		}
 
@@ -82,8 +93,12 @@ export const Register = (props) => {
 	                <Field name="username" component={TextInput} placeholder={"Usuario"} validate={required}/>{/*validate={composeValidators(required, email)}*/}
 	              </div>
 	              <div className="w-full mb-3 md:mb-0">
-	              	<label>Nombre que aparece en tabla</label>
-	                <Field name="full_name" component={TextInput} placeholder={"Nombre"} validate={required}/>{/*validate={composeValidators(required, email)}*/}
+	              	<label>Nombre</label>
+	                <Field name="first_name" component={TextInput} placeholder={"Nombre"} validate={required}/>{/*validate={composeValidators(required, email)}*/}
+	              </div>
+	              <div className="w-full mb-3 md:mb-0">
+	              	<label>Apellido</label>
+	                <Field name="last_name" component={TextInput} placeholder={"Apellido"} validate={required}/>{/*validate={composeValidators(required, email)}*/}
 	              </div>
 	              <div className="w-full mb-3 md:mb-0">
 	              <label>Contraseña</label>
@@ -97,7 +112,7 @@ export const Register = (props) => {
 	                
 	                <Button
 	                  className="btn-secondary btn-block "
-	                  title={"Register"}
+	                  title={"Registrarse"}
 	                  onClick={handleSubmit}
 	                  //disabled={this.state.submitting}
 	                />

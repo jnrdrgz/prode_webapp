@@ -116,6 +116,7 @@ export const CurrentGameWeek = (props) => {
       {isLoading && <h2>Cargando...</h2>}
       {!isLoading && !data.matches && <h2 className="text-center p-10">No hay fecha actual</h2>}
       {!isLoading && data.game_week && !data.matches.length && <h2 className="text-center p-5">No hay partidos</h2>}
+      {!isLoading && data.game_week && data.game_week.init_time && <h2 className="text-center p-5">Fecha disponible hasta: {data.game_week.init_time.replace("T", " ")}</h2>}
       {!isLoading && data.matches &&
         <>
           <Form initialValues={{}} onSubmit={onSubmit}>

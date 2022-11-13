@@ -56,6 +56,7 @@ export const AddGameWeek = (props) => {
     	matches: values.partidos,
     	tournament_id: id,
     	is_current: true,
+      game_week_deadline: values.deadline ? values.deadline : null,
     }
    
     mutation.mutate(payload)

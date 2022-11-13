@@ -15,6 +15,15 @@ export const requiredAndOnlyNumber = value => (validateIsfilled(value) && valida
 
 export const composeValidators = (...validators) => value => validators.reduce((error, validator) => error || validator(value), undefined)
 
+export const capitalizePhrase = string => {
+  if (typeof string !== 'string') return '';
+  return string
+    .toLowerCase()
+    .split(' ')
+    .map(s => s.charAt(0).toUpperCase() + s.slice(1))
+    .join(' ');
+};
+
 export const getColorScore = (userScore, realScore) => {
 	if(!userScore) return ""
 	if(!realScore) return ""

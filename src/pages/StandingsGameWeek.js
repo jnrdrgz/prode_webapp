@@ -58,13 +58,6 @@ export const StandingsGameWeek = (props) => {
 					      </tr>
 					    </thead> 
 					    <tbody>
-					      {/*<tr>
-					        <th>1</th> 
-					        <td>Cy Ganderton</td> 
-					        <td>Quality Control Specialist</td> 
-					        <td>Littel, Schaden and Vandervort</td> 
-					        <td>Canada</td> 
-					      </tr>*/}
 					      	{data.standings.map((s, index) => {
 					      		return (
 					      			<tr key={"part"+index}>
@@ -90,13 +83,31 @@ export const StandingsGameWeek = (props) => {
 				      </tr>
 				    </thead> 
 				    <tbody>
+				    	<tr key={"prdcttt"}>
+				    	<th>Reales</th>
+				    	{data.matches.map((m, index) => <th  key={"realmatch"+index}>{m.score}</th>)}
+				    	</tr>
+				    </tbody> 
+				  </table>
+				</div>
+			</>}
+		 
+    		{!isLoading && data?.matches && <>
+	    		<div className="">
+				  <table className="table table-compact w-full">
+				    <thead className="sticky top-0">
+				      <tr >
+				        <th></th> 
+				        {data.matches.map((m,index) => <th key={"mtch"+index}>{m.short}</th> )}				        
+				      </tr>
+				    </thead> 
+				    <tbody>
 				    	{data.predictions.map((prediction, index) => {return(
 				    		<tr key={"prdct"+index}>
 									<th>{prediction.participante}</th>
 									{data.matches.map((m, index) => <th key={"prdctprdct"+index} className={getColorScore(prediction.predictions[m.short], m.score)}>{prediction.predictions[m.short] ? prediction.predictions[m.short] : "x-x"}</th>)}
 								</tr>
 				    	)})}
-
 				    </tbody> 
 				  </table>
 				</div>
