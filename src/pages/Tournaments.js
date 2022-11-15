@@ -20,6 +20,12 @@ export const Tournaments = (props) => {
   //console.log(api, isLoading, isError, data)
 
   const { user, isLogged } = useAuth();
+  React.useEffect(() => {
+    if(!isLogged){
+      navigate(config.ROUTES.LOGIN)
+      return
+    }
+  }, [])
 
   const gotoTournament = (tid) => {
     navigate("/tournaments/:id".replace(":id", tid))

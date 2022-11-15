@@ -10,11 +10,20 @@ import { useNavigate, useParams } from "react-router-dom";
 import config from '../config';
 import api from '../api';
 import {getColorScore} from '../libraries/utils';
+import useAuth from '../hooks/useAuth'
 
 export const StandingsGameWeek = (props) => {
 	const navigate = useNavigate()
 	const queryClient = useQueryClient()
 	let { id } = useParams();
+
+	const { user, isLogged } = useAuth();
+	React.useEffect(() => {
+		if(!isLogged){
+			navigate(config.ROUTES.LOGIN)
+			return
+		}
+	}, [])
 
 	//let fechas = [1,2,3,4]
 	const fechasQuery = useQuery('game_weeks_names',  () => api.getTournamentGameWeeks(id))
@@ -27,6 +36,7 @@ export const StandingsGameWeek = (props) => {
 			queryFn: () => api.getMyTournamentStandingsGameWeek(id, gameWeekId ? gameWeekId : fechas[0].id),
 			enabled: !!fechas
 		})
+
 
 
 

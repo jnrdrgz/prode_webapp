@@ -14,6 +14,8 @@ import Swal from 'sweetalert2';
 
 import { useQuery, useMutation, useQueryClient, QueryClient, QueryClientProvider, } from 'react-query';
 import { required, getColorScore, requiredAndOnlyNumber } from '../libraries/utils';
+import useAuth from '../hooks/useAuth'
+
 
 const MatchForm = ({match_id, local, visitante, show_input = true}) => {
   //const required = value => (expression => expression && (expression.length > 0 || expression > 0) ? undefined : this.t("This field is required"))
@@ -51,6 +53,13 @@ export const CurrentGameWeek = (props) => {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
   let { id } = useParams();
+  const { user, isLogged } = useAuth();
+  React.useEffect(() => {
+    if(!isLogged){
+      navigate(config.ROUTES.LOGIN)
+      return
+    }
+  }, [])
   
   const {isLoading, isError, data} = useQuery(`current_game_week${id}`,  () => api.getCurrentGameWeek(id))
   //console.log(api, isLoading, isError, data)
@@ -88,8 +97,6 @@ export const CurrentGameWeek = (props) => {
   //}
 
   const onSubmit = (values) => {
-    console.log("values", values)
-
     let ids = data.matches.map(m => m.id)
 
     let predictions = ids.map(id => { 
@@ -105,9 +112,7 @@ export const CurrentGameWeek = (props) => {
     mutation.mutate({predictions})
     //navigate(config.ROUTES.SUCCESS)
   }
-
-  //console.log("data.game_week && data.matches && !!data.matches.length && !data.predictions?.length")
-  //console.log(data?.game_week, data?.matches, !!data?.matches?.length, data?.predictions)
+  
 	return (
 		<LayoutWithSidebar>
 		 <div className="flex-1 overflow-y-auto px-0" >
@@ -144,7 +149,7 @@ export const CurrentGameWeek = (props) => {
                   })
                 }
 
-                {data.game_week && data.matches && !!data.matches.length && !data.predictions?.length && !!data.matches.filter(m => m.score == null).length && <Button className="btn-secondary btn-block " title={"Guardar"} onClick={handleSubmit} disabled={data.game_week?.status !== "available"}/>}
+                {data.game_week && data.matches && !!data.matches.length && !data.predictions?.length && !!data.matches.filter(m => m.score == null).length && <Button className="btn-secondary btn-block " title={"Guardar"} onClick={handleSubmit} disabled={((data.game_week?.status !== "available") || mutation.isLoading)}/>}
                 
               </form>
             )}

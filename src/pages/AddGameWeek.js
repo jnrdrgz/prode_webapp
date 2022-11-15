@@ -48,8 +48,8 @@ export const AddGameWeek = (props) => {
   })
 
   const onSubmit = (values) => {
-    console.log("values", values)
-    console.log("values.deadline", values.deadline)
+    //console.log("values", values)
+    //console.log("values.deadline", values.deadline)
 
     let payload = {
     	game_week_name: values.game_week_name,

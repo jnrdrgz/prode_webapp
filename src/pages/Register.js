@@ -89,7 +89,7 @@ export const Register = (props) => {
 	          {({ handleSubmit, form, submitting, pristine, values }) => (
 	            <form onSubmit={handleSubmit} className="w-full max-w-lg mx-auto px-4 mt-4">
 	              <div className="w-full mb-3 md:mb-0">
-	              	<label>Nombre para logearse</label>
+	              	<label>Nombre para logearse (el usuario se guarda en minúscula y solo acepta letras, números y _)</label>
 	                <Field name="username" component={TextInput} placeholder={"Usuario"} validate={required}/>{/*validate={composeValidators(required, email)}*/}
 	              </div>
 	              <div className="w-full mb-3 md:mb-0">
@@ -114,7 +114,7 @@ export const Register = (props) => {
 	                  className="btn-secondary btn-block "
 	                  title={"Registrarse"}
 	                  onClick={handleSubmit}
-	                  //disabled={this.state.submitting}
+	                  disabled={mutation.isLoading}
 	                />
 	              </div>
 	            </form>

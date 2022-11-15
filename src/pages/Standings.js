@@ -9,12 +9,21 @@ import { useQuery, useMutation, useQueryClient, QueryClient, QueryClientProvider
 import { useNavigate, useParams } from "react-router-dom";
 import config from '../config';
 import api from '../api';
+import useAuth from '../hooks/useAuth'
 
 export const Standings = (props) => {
 	const navigate = useNavigate()
 	const queryClient = useQueryClient()
 	let { id } = useParams();
 	
+	const { user, isLogged } = useAuth();
+	React.useEffect(() => {
+		if(!isLogged){
+			navigate(config.ROUTES.LOGIN)
+			return
+		}
+	}, [])
+
 	const {isLoading, isError, data} = useQuery(`tournament_standings${id}`,  () => api.getMyTournamentStandings(id))
 	//console.log("__data", isLoading, isError, data)
 	//{data.standings.map(s => s.participante)}

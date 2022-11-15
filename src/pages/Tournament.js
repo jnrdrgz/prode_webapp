@@ -19,7 +19,14 @@ export const Tournament = (props) => {
   let navigate = useNavigate();
   let { id } = useParams();
 	const { user, isLogged } = useAuth();
-	
+
+	React.useEffect(() => {
+		if(!isLogged){
+			navigate(config.ROUTES.LOGIN)
+			return
+		}
+	}, [])
+
 	return (
 		<LayoutWithSidebar>
 		 <div className="flex-1 overflow-y-auto px-0" >
@@ -27,11 +34,11 @@ export const Tournament = (props) => {
   	   <Button className="btn-secondary btn-block my-2" title={"Fecha actual"} onClick={() => {navigate(config.ROUTES.CURRENT_GAME_WEEK.replace(":id", id))}}/>
   	   <Button className="btn-secondary btn-block my-2" title={"Tabla de posiciones"} onClick={() => {navigate(config.ROUTES.STANDINGS.replace(":id", id))}}/>
   	   <Button className="btn-secondary btn-block my-2" title={"Tabla por fecha"} onClick={() => {navigate(config.ROUTES.STANDINGS_GAME_WEEK.replace(":id", id))}}/>
-			 {user.is_admin && <h2 className="text-center">Admin</h2>}
-  	   {user.is_admin && <Button className="btn-secondary btn-block my-2" title={"Actualizar Fecha"} onClick={() => {navigate(config.ROUTES.UPDATE_CURRENT_GAME_WEEK.replace(":id", id))}}/>}
-  	   {user.is_admin && <Button className="btn-secondary btn-block my-2" title={"Agregar Fecha"} onClick={() => {navigate(config.ROUTES.ADD_GAME_WEEK.replace(":id", id))}}/>}
-  	   {user.is_admin && <Button className="btn-secondary btn-block my-2" title={"Agregar Participante"} onClick={() => {navigate(config.ROUTES.ADD_USER_TO_TOURNAMENT.replace(":id", id))}}/>}
-  	   {user.is_admin && <Button className="btn-secondary btn-block my-2" title={"Finalizar Toreno"} onClick={() => {}}/>}
+			 {user?.is_admin && <h2 className="text-center">Admin</h2>}
+  	   {user?.is_admin && <Button className="btn-secondary btn-block my-2" title={"Actualizar Fecha"} onClick={() => {navigate(config.ROUTES.UPDATE_CURRENT_GAME_WEEK.replace(":id", id))}}/>}
+  	   {user?.is_admin && <Button className="btn-secondary btn-block my-2" title={"Agregar Fecha"} onClick={() => {navigate(config.ROUTES.ADD_GAME_WEEK.replace(":id", id))}}/>}
+  	   {user?.is_admin && <Button className="btn-secondary btn-block my-2" title={"Agregar Participante"} onClick={() => {navigate(config.ROUTES.ADD_USER_TO_TOURNAMENT.replace(":id", id))}}/>}
+  	   {user?.is_admin && <Button className="btn-secondary btn-block my-2" title={"Finalizar Toreno"} onClick={() => {}}/>}
 		 </div>
 		</LayoutWithSidebar>
 	)

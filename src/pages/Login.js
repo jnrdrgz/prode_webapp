@@ -15,7 +15,7 @@ import {required} from '../libraries/utils';
 let doLogin = (values) => {
 	var formData = new FormData();
 
-	formData.append('username', values.username);
+	formData.append('username', values.username.toLowerCase());
 	formData.append('password', values.password);
 
 	return axios({
@@ -85,13 +85,12 @@ export const Login = (props) => {
 	                  className="btn-link ml-auto mb-10 text-primary-content text-sm"
 	                  title={"Registrarse"}
 	                  onClick={()=>{navigate("/register")}}
-	                  //onClick={this.onForgotPassword}
 	                />
 	                <Button
 	                  className="btn-secondary btn-block "
 	                  title={"Entrar"}
 	                  onClick={handleSubmit}
-	                  //disabled={this.state.submitting}
+	                  disabled={mutation.isLoading}
 	                />
 	              </div>
 	            </form>

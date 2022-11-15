@@ -17,11 +17,13 @@ export const AddTournament = (props) => {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
   let { id } = useParams();
+  const [submitDisabled, setSubmitDisabled] = React.useState(false);
 
   const mutation = useMutation((values) => api.addTournament(values), {
     onError: (error, variables, context) => {
       // An error happened!
       console.log(`data login`, error, variables, context)
+      setSubmitDisabled(false)
       Swal.fire({
         icon: 'error',
         title: 'Error al cargar  prode',
@@ -31,6 +33,7 @@ export const AddTournament = (props) => {
     onSuccess: (data, variables, context) => {
       console.log(`data login`, data, variables, context)
       if(data?.error){
+        setSubmitDisabled(false)
         console.log("ERROR", data?.error)
         Swal.fire({
           icon: 'error',
@@ -38,19 +41,20 @@ export const AddTournament = (props) => {
           text: data.error,
         }) 
       } else {
+        setSubmitDisabled(false)
+
         navigate("/success")
       }
     },
   })
 
-  const onSubmit = (values) => {
+  const onSubmit = async (values) => {
     console.log("values", values)
-
     let payload = {
       name: values.name
     }
    
-    mutation.mutate(payload)
+    await mutation.mutate(payload)
     //navigate(config.ROUTES.SUCCESS)
   }
 
@@ -70,7 +74,7 @@ export const AddTournament = (props) => {
 	                  className="btn-secondary btn-block "
 	                  title={"Agregar"}
 	                  onClick={handleSubmit}
-	                  //disabled={this.state.submitting}
+	                  disabled={mutation.isLoading}
 	                />
 	              </div>
 	            </form>

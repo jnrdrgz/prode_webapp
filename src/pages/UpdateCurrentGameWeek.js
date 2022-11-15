@@ -219,9 +219,9 @@ export const UpdateCurrentGameWeek = (props) => {
         </>
 		 	}
 
-      <Button className="btn-secondary btn-block mt-4" title={"Abrir"} onClick={onOpenGameWeek} disabled={!data?.game_week}/>
-      <Button className="btn-secondary btn-block mt-2" title={"Cerrar"} onClick={onCloseGameWeek} disabled={!data?.game_week}/>
-      <Button className="btn-secondary btn-block my-2" title={"Finalizar"} onClick={onEndGameWeek} disabled={!data?.game_week}/>
+      <Button className="btn-secondary btn-block mt-4" title={"Abrir"} onClick={onOpenGameWeek} disabled={!data?.game_week || data?.game_week?.status === "available"}/>
+      <Button className="btn-secondary btn-block mt-2" title={"Cerrar"} onClick={onCloseGameWeek} disabled={!data?.game_week || data?.game_week?.status === "waiting"}/>
+      <Button className="btn-secondary btn-block my-2" title={"Finalizar"} onClick={onEndGameWeek} disabled={!data?.game_week || data?.game_week?.status === "finished"}/>
      </div>
      </div>
 		</LayoutWithSidebar>
