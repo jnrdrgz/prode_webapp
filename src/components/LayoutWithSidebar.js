@@ -57,8 +57,9 @@ export default function LayoutWithSidebar({ main, header, container, loading, ch
     <div className="drawer-side">
       <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
       <ul className="menu p-4 overflow-y-auto w-80 bg-base-100">
-        <button onClick={closeDrawer} className="btn btn-ghost btn-sm absolute top-0 right-0 py-6">X</button>
-
+        <div className="flex">
+        <button onClick={closeDrawer} className="btn btn-ghost w-1/6">X</button>
+        </div>
         {isLogged && <li className="text-center mt-4 border-b border-solid border-white border-opacity-20 pb-3 mb-3">{`Usuario: ${user?.username}`} </li>}
         {<li className="flex items-center mt-1 py-1 px-2 rounded-md text-primary-200 opacity-50 opacity-100"><div onClick={() => {navigate("/")}}>Inicio</div></li>}
         {!isLogged && <li className="flex items-center mt-1 py-1 px-2 rounded-md text-primary-200 opacity-50 opacity-100"><div onClick={() => {navigate("/login")}}>Login</div></li>}
