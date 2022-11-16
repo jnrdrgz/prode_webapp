@@ -84,7 +84,7 @@ export const StandingsGameWeek = (props) => {
 					</div>
     		</>}
     		{!isLoading && data?.matches && <>
-	    		<div className="overflow-x-auto">
+	    		<div className="">
 				  <table className="table table-compact w-full">
 				    <thead>
 				      <tr>
