@@ -16,6 +16,7 @@ import { StandingsGameWeek } from '../pages/StandingsGameWeek';
 import { UpdateCurrentGameWeek } from '../pages/UpdateCurrentGameWeek';
 import { AddTournament } from '../pages/AddTournament';
 import { Rules } from '../pages/Rules';
+import { Friends } from '../pages/Friends';
 
 import { Success } from '../pages/Success';
 import config from '../config';
@@ -40,6 +41,7 @@ export const AppRoutes = () => {
       <Route path={config.ROUTES.UPDATE_CURRENT_GAME_WEEK} element={<UpdateCurrentGameWeek/>} />
       <Route path={config.ROUTES.ADD_TOURNAMENT} element={<AddTournament/>} />
       <Route path={config.ROUTES.RULES} element={<Rules/>} />
+      <Route path={config.ROUTES.FRIENDS} element={<Friends/>} />
 
       <Route path={"/"} element={<Home/>} />
 

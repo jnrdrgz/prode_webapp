@@ -19,6 +19,7 @@ const index = {
         UPDATE_CURRENT_GAME_WEEK: "/tournaments/:id/update_current_game_week",
         ADD_TOURNAMENT: "/add_tournament",
         RULES: "/rules",
+        FRIENDS: "/friends",
     }
 };
 export default index
