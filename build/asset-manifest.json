@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.2cb960c8.css",
-    "main.js": "/static/js/main.07b62b22.js",
+    "main.js": "/static/js/main.096ff313.js",
     "static/js/787.fc3a1980.chunk.js": "/static/js/787.fc3a1980.chunk.js",
     "static/media/leoind.jpeg": "/static/media/leoind.fc4e1b09262225ffd530.jpeg",
     "static/media/logo.png": "/static/media/logo.e7a659fc6af25a51ce93.png",
     "index.html": "/index.html",
     "main.2cb960c8.css.map": "/static/css/main.2cb960c8.css.map",
-    "main.07b62b22.js.map": "/static/js/main.07b62b22.js.map",
+    "main.096ff313.js.map": "/static/js/main.096ff313.js.map",
     "787.fc3a1980.chunk.js.map": "/static/js/787.fc3a1980.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2cb960c8.css",
-    "static/js/main.07b62b22.js"
+    "static/js/main.096ff313.js"
   ]
 }

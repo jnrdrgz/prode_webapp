@@ -44,7 +44,7 @@ export const StandingsGameWeek = (props) => {
 	   refetch()
 	}, [gameWeekId]);
 
-
+	const show_all_participants = data?.game_weeks?.length ? data?.game_weeks.find(gw => gw.id === (gameWeekId ? gameWeekId : fechas[0].id)).status !== "available" : null
 
 	return (
 		<LayoutWithSidebar>
@@ -102,7 +102,7 @@ export const StandingsGameWeek = (props) => {
 				</div>
 			</>}
 		 
-    		{!isLoading && data?.matches && <>
+    		{!isLoading && data?.matches && show_all_participants && <>
 	    		<div className="">
 				  <table className="table table-compact w-full">
 				    <thead className="sticky top-0">
