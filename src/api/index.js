@@ -8,7 +8,6 @@ import config from '../config';
 async function getMyTournaments() {
   let token = localStorage.getItem(config.LOCAL_STORAGE_TOKEN)
   var auth = { headers: { "Authorization" : `Bearer ${token}` }};
-  console.log("cccccccc", `${config.API_URL}/tournaments`)
   const res = await fetch(`${config.API_URL}/tournaments`, auth);
   return await res.json();
 }
@@ -26,7 +25,6 @@ async function getSpecificGameWeek(tournament_id, game_week_id) {
   const res = await fetch(`${config.API_URL}/tournaments/${tournament_id}/game_weeks/${game_week_id}`, auth);
   return await res.json();
 }
-
 
 async function getMyTournamentStandings(tournament_id) {
   let token = localStorage.getItem(config.LOCAL_STORAGE_TOKEN)
@@ -162,8 +160,6 @@ async function addTournament(values) {
 
   return await res.json();
 }
-
-
 const api = {
 	getMyTournaments,
 	getCurrentGameWeek,

@@ -5,13 +5,15 @@ import Button from '../components/Button';
 import { Form, Field } from 'react-final-form'
 
 import axios from 'axios'
-import { useMutation, } from 'react-query'
+import { useQuery, useMutation, useQueryClient, QueryClient, QueryClientProvider, } from 'react-query'
 import { useNavigate,  } from "react-router-dom";
 
 import config from '../config';
 
 import logo from '../assets/images/logo.png';
 import useAuth from '../hooks/useAuth'
+import api from '../api';
+
 
 //<h2 className="text-center">HOME</h2>
 export const Home = (props) => {
@@ -22,6 +24,24 @@ export const Home = (props) => {
 		window.open(url, '_blank').focus();
 	}
 
+ 	const queryClient = useQueryClient()
+ 	const {isLoading, isError, data} = useQuery('tournaments',  api.getMyTournaments)
+
+ 	const logoutIfError = () => {
+ 		console.log('__data', data.error, "isLogged", isLogged, "isLoading", isLoading)
+ 		if(data?.error && isLogged){
+		  localStorage.removeItem("prode_user");
+		  localStorage.removeItem("prode_token");
+		  navigate(config.ROUTES.LOGIN)
+		  return
+		}
+ 	}
+
+	React.useEffect(() => {
+		if(isLogged && data?.error){
+			logoutIfError()
+		}
+	}, [data])
 
 	return (
 		<LayoutWithSidebar>

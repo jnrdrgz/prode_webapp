@@ -51,7 +51,8 @@ export const Login = (props) => {
 	    	console.log("success", data.data)
 	    	localStorage.setItem("prode_token", data.data.access_token)
 		    localStorage.setItem("prode_user", JSON.stringify(data.data.user))
-	    	navigate("/")
+	    	//navigate("/")
+	    	window.open("/", "_self")
 	    }
 	  },
 	})
