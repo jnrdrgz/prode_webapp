@@ -75,14 +75,14 @@ export const AddParticipant = (props) => {
 		          	if(tusers.includes(u.id)) {
 		          		return(
 		          		<div key={"user"+i} className="flex">
-			          		<p className="w-3/4 mr-3">{u.full_name}</p>
+			          		<p className="w-3/4 mr-3">{u.created_at} - {u.full_name}</p>
 			          		<Button className="btn-secondary btn-block my-2 w-1/4 mr-3" title={"-"} onClick={() => {}}/>
 		          		</div>)
 		          	}
 		          	return(
 
 		          		<div key={"user"+i} className="flex">
-		          			<p className="w-3/4 mr-3">{u.full_name}</p>
+		          			<p className="w-3/4 mr-3">{u.created_at} - {u.full_name}</p>
 		          			<Button className="btn-secondary btn-block my-2 w-1/4 mr-3" title={"+"} onClick={() => {addParticipantToTournament(u.id)}}/>
 		          		</div>)
 		          })}
