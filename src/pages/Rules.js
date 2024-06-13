@@ -26,30 +26,33 @@ export const Rules = (props) => {
   	   			Reglamento
   	   		</h2>
   	   		<h2 className="px-4 text-center text-justify">
-  	   			- EL SISTEMA del PRODE INTERCONTINENTAL determina las reglas a seguir durante el desarrollo de la competencia.<br/><br/>
-
+  	   			- El REGLAMENTO del PRODE INTERCONTINENTAL determina las normas a seguir durante el desarrollo de la competencia.
 
 - EL SISTEMA cuenta con tres subcategorías dentro de la categoría “Torneo”: ‘Fecha Actual’, ‘Tabla de Posiciones’ y ‘Tabla por Fecha’.<br/><br/>
 
 
-- En ‘Fecha Actual’, los participantes deben cargar sus pronósticos teniendo en cuenta lo siguiente: SE CIERRA A LA HORA PREFIJADA DEL INICIO DEL PARTIDO (si Alemania - Escocia está programado para las 16:00 horas, pero arranca a las 16:05, EL SISTEMA toma como plazo límite para enviar los pronósticos las 16:00 horas).<br/><br/>
+- El SISTEMA cuenta con tres subcategorías dentro de la categoría “Torneo”: ‘Fecha Actual’, ‘Tabla de Posiciones’ y ‘Tabla por Fecha’.<br/><br/>
 
 
-- Luego del comienzo del primer partido de la fecha (en su hora prefijada) EL SISTEMA no permite cargar el pronóstico de ningún partido.<br/><br/>
+- En ‘Fecha Actual’, los participantes deben cargar sus pronósticos teniendo en cuenta lo siguiente: SE CIERRA A LA HORA PREFIJADA DEL INICIO DE LA FECHA (si Alemania - Escocia está programado para las 16:00, pero arranca a las 16:05, EL SISTEMA toma como plazo límite para enviar los pronósticos las 16:00 horas).
+<br/><br/>
 
 
-- EL SISTEMA no permite números de dos cifras, letras, ni ningún símbolo.<br/><br/>
+- Luego del comienzo del primer partido de la fecha (en su hora prefijada) el SISTEMA no permite cargar el pronóstico de ningún partido.<br/><br/>
+
+- El SISTEMA no permite números de dos cifras, letras, ni ningún símbolo.<br/><br/>
+
+
+- El SISTEMA no establece ningún límite para pronosticar resultados iguales. (EJ: se puede pronosticar 1-0 en todos los partidos).<br/><br/>
+
 
 - Dentro de la subcategoría ‘Tabla de Posiciones’, el lugar en la tabla se determina, en primera instancia, por puntos, en segundo lugar, por plenos y en tercer lugar por goles en plenos.<br/><br/>
 
-
-- EL PRODE INTERCONTINENTAL no cuenta con límite de resultados iguales.<br/><br/>
-
-
-- El pleno/resultado exacto tiene un valor de tres (3) puntos y acertar ganador/empate un (1) punto.<br/><br/>
+- El pleno/resultado exacto tiene un valor de tres (3) puntos y acertar ganador/empate un (1) punto. <br/><br/>
 
 
-- El PRODE INTERCONTINENTAL cuenta con siete instancias para enviar los pronósticos: <br/><br/>
+
+- El PRODE INTERCONTINENTAL cuenta con siete (7) instancias para enviar los pronósticos: <br/><br/>
 
 * 1) FECHA 1 EUROCOPA | FECHA 1 COPA AMÉRICA<br/>
 * 2) FECHA 2 EUROCOPA<br/>
