@@ -119,6 +119,22 @@ async function addParticipantToTournament(tournament_id, user_id) {
   return await res.json();
 }
 
+async function addAdminToTournament(tournament_id, user_id) {
+  let token = localStorage.getItem(config.LOCAL_STORAGE_TOKEN)
+  const res = await fetch(`${config.API_URL}/add_admin_to_tournament`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      "Authorization" : `Bearer ${token}`
+    },
+    body: JSON.stringify({user_id, tournament_id}) 
+  });
+
+  return await res.json();
+}
+
+
+
 async function updateCurrenGameWeekMatches(values) {
   let token = localStorage.getItem(config.LOCAL_STORAGE_TOKEN)
   const res = await fetch(`${config.API_URL}/matches/scores/bulk`, {
@@ -160,6 +176,20 @@ async function addTournament(values) {
 
   return await res.json();
 }
+
+async function resetPassword(values) {
+  //let token = localStorage.getItem(config.LOCAL_STORAGE_TOKEN)
+  const res = await fetch(`${config.API_URL}/users/reset_password_hash/${values.user_hash}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      //"Authorization" : `Bearer ${token}`
+    },
+    body: JSON.stringify(values) 
+  });
+
+  return await res.json();
+}
 const api = {
 	getMyTournaments,
 	getCurrentGameWeek,
@@ -175,6 +205,7 @@ const api = {
   updateGameWeekStatus,
   addTournament,
   getSpecificGameWeek,
+  resetPassword,
 }
 
 export default api
