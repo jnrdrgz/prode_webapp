@@ -62,6 +62,8 @@ export const Rules = (props) => {
 * 6) SEMIS EUROCOPA | SEMIS COPA AMÉRICA<br/>
 * 7) FINAL EUROCOPA | TERCER Y CUARTO PUESTO + FINAL COPA AMÉRICA<br/>
 
+<br/>
+- En el Prode Intercontinental se incluye el alargue en todas sus instancias.
 
 <br/><br/>
   	   		</h2>

@@ -1,5 +1,5 @@
 const index = {
-    API_URL: "https://juanrodriguez.xyz:8091/api",
+    API_URL: "https://apiprode.juanrodriguez.xyz/api",
     //API_URL: "http://192.168.1.23:8000/api",
     LOCAL_STORAGE_TOKEN: "prode_token",
     ROUTES: {
