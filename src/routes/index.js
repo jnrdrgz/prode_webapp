@@ -18,6 +18,7 @@ import { AddTournament } from '../pages/AddTournament';
 import { Rules } from '../pages/Rules';
 import { Friends } from '../pages/Friends';
 import { Forgot } from '../pages/Forgot';
+import { Champions } from '../pages/Champions';
 
 import { Success } from '../pages/Success';
 import config from '../config';
@@ -44,6 +45,7 @@ export const AppRoutes = () => {
       <Route path={config.ROUTES.RULES} element={<Rules/>} />
       <Route path={config.ROUTES.FRIENDS} element={<Friends/>} />
       <Route path={config.ROUTES.FORGOT} element={<Forgot/>} />
+      <Route path={config.ROUTES.CHAMPIONS} element={<Champions/>} />
 
       <Route path={"/"} element={<Home/>} />
 

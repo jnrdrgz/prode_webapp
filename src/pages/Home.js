@@ -51,6 +51,7 @@ export const Home = (props) => {
   	   		{isLogged && <Button className="btn-secondary btn-block my-2" title={"Reglamento"} onClick={() => {navigate(config.ROUTES.RULES)}}/>}
   	   		{!isLogged && <Button className="btn-secondary btn-block my-2" title={"Login"} onClick={() => {navigate(config.ROUTES.LOGIN)}}/>}
   	   		{!isLogged && <Button className="btn-secondary btn-block my-2" title={"Registrarse"} onClick={() => {navigate(config.ROUTES.REGISTER)}}/>}
+  	   		{<Button className="btn-secondary btn-block my-2" title={"Campeones"} onClick={() => {navigate(config.ROUTES.CHAMPIONS)}}/>}
   	   		{isLogged && <Button className="btn-secondary btn-block my-2" title={"Foro"} onClick={() => {openInNewTab("https://foro.juanrodriguez.xyz/")}}/>}
 		 </div>
 		</LayoutWithSidebar>

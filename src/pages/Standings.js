@@ -72,7 +72,7 @@ export const Standings = (props) => {
 
     		
 		 </div>
-		 <Button className="btn-secondary btn-block mt-16" title={"Volver"} onClick={() => navigate(/tournaments/+id)}/>
+		 <Button className="btn-secondary btn-block mt-16" title={"Volver"} onClick={() => navigate("/tournaments/"+id)}/>
 		</LayoutWithSidebar>
 	)
 }

@@ -21,6 +21,7 @@ const index = {
         RULES: "/rules",
         FRIENDS: "/friends",
         FORGOT: "/forgot/:hash",
+        CHAMPIONS: "/champions",
     }
 };
 export default index
