@@ -20,6 +20,7 @@ const index = {
         ADD_TOURNAMENT: "/add_tournament",
         RULES: "/rules",
         FRIENDS: "/friends",
+        FORGOT: "/forgot/:hash",
     }
 };
 export default index
