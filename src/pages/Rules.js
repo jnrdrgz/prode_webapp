@@ -32,7 +32,7 @@ export const Rules = (props) => {
 	- El SISTEMA cuenta con tres subcategorías dentro de la categoría “Torneo”: ‘Fecha Actual’, ‘Tabla de Posiciones’ y ‘Tabla por Fecha’.
 	<br/><br/>
 	
-	- En ‘Fecha Actual’, los participantes deben cargar sus pronósticos, teniendo en cuenta lo siguiente: SE CIERRA A LA HORA PREFIJADA DEL INICIO DE LA FECHA. (Si Boca - Benfica está programado para las 19:01, pero arranca a las 19:00, el SISTEMA toma como plazo límite para enviar los pronósticos las 19:00 horas).
+	- En ‘Fecha Actual’, los participantes deben cargar sus pronósticos, teniendo en cuenta lo siguiente: SE CIERRA A LA HORA PREFIJADA DEL INICIO DE LA FECHA. (Si Boca - Benfica está programado para las 19:00, pero arranca a las 19:01, el SISTEMA toma como plazo límite para enviar los pronósticos las 19:00 horas).
 	<br/><br/>
 	
 	- Luego del comienzo del primer partido de la fecha (en su hora prefijada), el SISTEMA no permite cargar el pronóstico de ningún partido.
