@@ -29,6 +29,11 @@ export const Champions = (props) => {
 			"year": "2025",
 			"champion": "P. Arana",
 		},
+		{
+			"tournament": "Prode Mundial de Clubes",
+			"year": "2025",
+			"champion": "G. Tralice",
+		},
 	]
 	return (
 		<LayoutWithSidebar>
